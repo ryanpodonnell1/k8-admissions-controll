@@ -28,6 +28,7 @@ violations[msg] {
 	msg := sprintf("[%v] - pod '%v' is missing required resource limits (memory)", [violation, pod])
 }
 
+#Ensure CPU Limits are set
 violations[msg] {
 	violation := "resource_limits"
 	input.request.kind.kind == "Pod"
