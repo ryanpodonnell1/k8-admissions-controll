@@ -1,0 +1,177 @@
+{
+  "kind": "AdmissionReview",
+  "apiVersion": "admission.k8s.io/v1",
+  "request": {
+    "uid": "99b9d02e-108f-4252-94e7-7ca8cbd7954c",
+    "kind": {
+      "group": "",
+      "version": "v1",
+      "kind": "Pod"
+    },
+    "resource": {
+      "group": "",
+      "version": "v1",
+      "resource": "pods"
+    },
+    "requestKind": {
+      "group": "",
+      "version": "v1",
+      "kind": "Pod"
+    },
+    "requestResource": {
+      "group": "",
+      "version": "v1",
+      "resource": "pods"
+    },
+    "name": "testpod",
+    "namespace": "kube-system",
+    "operation": "CREATE",
+    "userInfo": {
+      "username": "tgrccloudsecurity:botocore-session-1622135243",
+      "uid": "heptio-authenticator-aws:611181293678:AROAY4TJ6OBXKJP3OVOUM",
+      "groups": [
+        "tgrccloudsecurity",
+        "system:authenticated"
+      ],
+      "extra": {
+        "accessKeyId": [
+          "XXXXXXXXXXXXXXXXXX"
+        ]
+      }
+    },
+    "object": {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "testpod",
+        "namespace": "kube-system",
+        "uid": "1fd327eb-e380-40f6-b3c6-2e2032997d74",
+        "creationTimestamp": "2021-05-27T17:20:53Z",
+        "labels": {
+          "run": "testpod"
+        },
+        "annotations": {
+          "kubernetes.io/psp": "eks.privileged"
+        },
+        "managedFields": [
+          {
+            "manager": "kubectl-run",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "time": "2021-05-27T17:20:53Z",
+            "fieldsType": "FieldsV1",
+            "fieldsV1": {
+              "f:metadata": {
+                "f:labels": {
+                  ".": {},
+                  "f:run": {}
+                }
+              },
+              "f:spec": {
+                "f:containers": {
+                  "k:{\"name\":\"testpod\"}": {
+                    ".": {},
+                    "f:image": {},
+                    "f:imagePullPolicy": {},
+                    "f:name": {},
+                    "f:resources": {},
+                    "f:terminationMessagePath": {},
+                    "f:terminationMessagePolicy": {}
+                  }
+                },
+                "f:dnsPolicy": {},
+                "f:enableServiceLinks": {},
+                "f:restartPolicy": {},
+                "f:schedulerName": {},
+                "f:securityContext": {},
+                "f:terminationGracePeriodSeconds": {}
+              }
+            }
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "default-token-7m9kw",
+            "secret": {
+              "secretName": "default-token-7m9kw"
+            }
+          }
+        ],
+        "containers": [
+          {
+            "name": "meow",
+            "image": "nginx",
+            "resources": {
+            },
+            "volumeMounts": [
+              {
+                "name": "default-token-7m9kw",
+                "readOnly": true,
+                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount"
+              }
+            ],
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File",
+            "imagePullPolicy": "Always"
+          },
+          {
+            "name": "testpod",
+            "image": "nginx",
+            "resources": {
+              "limits": {
+                "cpu": 225,
+                "memory": 2
+              }
+            },
+            "volumeMounts": [
+              {
+                "name": "default-token-7m9kw",
+                "readOnly": true,
+                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount"
+              }
+            ],
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File",
+            "imagePullPolicy": "Always"
+          }
+        ],
+        "restartPolicy": "Always",
+        "terminationGracePeriodSeconds": 30,
+        "dnsPolicy": "ClusterFirst",
+        "serviceAccountName": "default",
+        "serviceAccount": "default",
+        "securityContext": {},
+        "schedulerName": "default-scheduler",
+        "tolerations": [
+          {
+            "key": "node.kubernetes.io/not-ready",
+            "operator": "Exists",
+            "effect": "NoExecute",
+            "tolerationSeconds": 300
+          },
+          {
+            "key": "node.kubernetes.io/unreachable",
+            "operator": "Exists",
+            "effect": "NoExecute",
+            "tolerationSeconds": 300
+          }
+        ],
+        "priority": 0,
+        "enableServiceLinks": true
+      },
+      "status": {
+        "phase": "Pending",
+        "qosClass": "BestEffort"
+      }
+    },
+    "oldObject": null,
+    "dryRun": false,
+    "options": {
+      "kind": "CreateOptions",
+      "apiVersion": "meta.k8s.io/v1",
+      "fieldManager": "kubectl-run"
+    }
+  }
+}
